@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/translationFragment">
+
+    <fragment
+        android:id="@+id/translationFragment"
+        android:name="com.travelingapp.fragment.TranslationFragment"
+        android:label="fragment_translate"
+        tools:layout="@layout/fragment_translate">
+        <action
+            android:id="@+id/action_translationFragment_to_languageChooseDialogFragment"
+            app:destination="@id/languageChooseDialogFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/languageChooseDialogFragment"
+        android:name="com.travelingapp.fragment.LanguageChooseFragment"
+        android:label="LanguageChooseDialogFragment">
+        <action
+            android:id="@+id/action_languageChooseDialogFragment_to_translationFragment"
+            app:destination="@id/translationFragment" />
+    </fragment>
+</navigation>

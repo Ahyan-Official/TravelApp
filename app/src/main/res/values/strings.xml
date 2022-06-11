@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">TravelingApp</string>
+    <string name="title_activity_maps">Wander</string>
+    <string name="normal_map">Normal Map</string>
+    <string name="hybrid_map">Hybrid Map</string>
+    <string name="satellite_map">Satellite Map</string>
+    <string name="terrain_map">Terrain Map</string>
+    <string name="lat_long_snippet">Lat: %1$.5f, Long: %2$.5f</string>
+    <string name="dropped_pin">Dropped Pin</string>
+    <string name="poi">poi</string>
+    <string name="zoom">15f</string>
+
+    <string name="applicant_name">Android Codility</string>
+    <string name="app_info">Android allows you convert your text into voice. Not only you can convert it but it also allows you to speak text in variety of different languages.</string>
+    <string name="text_hint">Enter your text here..</string>
+    <string name="btn_info">Tap button to speak</string>
+    <string name="speak_out">Speak Out</string>
+    <string name="empty_msg">Please enter your message..!!</string>
+
+
+    <string name="bookmarks">Bookmarks</string>
+    <string name="history">History</string>
+    <string name="hint_translate">Input text to translate</string>
+    <string name="text_to_translate">Text to translate</string>
+    <string name="result">Result</string>
+    <string name="see_results_here">You will see results here</string>
+    <string name="clear_history">Clear history</string>
+    <string name="no_history_text">Your steps are invisible.\nHistory is saved as you clear your translation</string>
+    <string name="language_autodetection">Language autodetection</string>
+    <string name="autodetect">Autodetect</string>
+    <string name="bookmark_saved">Bookmark saved</string>
+    <string name="bookmark_not_saved">Bookmark not saved. Make sure text is not empty</string>
+    <string name="close">close</string>
+    <string name="open">open</string>
+
+    <string name="translate">Translate</string>
+    <string name="bookmark">Bookmark</string>
+    <string name="clear_input">Clear input</string>
+    <string name="done">Done</string>
+    <string name="star">Star</string>
+    <string name="clear">Clear</string>
+    <string name="save">Save</string>
+</resources>

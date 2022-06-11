@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".PhraseActivity">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Phrases"
+        android:textAlignment="center"
+        android:textSize="@dimen/_20sdp"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/ph"
+        android:layout_centerInParent="true"
+        android:textAlignment="center"
+        android:textSize="@dimen/_15sdp"
+        />
+    <Button
+        android:id="@+id/home1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Home Screen"
+        android:layout_marginStart="@dimen/_70sdp"
+        android:layout_marginEnd="@dimen/_70sdp"
+        tools:layout_editor_absoluteX="0dp"
+        android:textColor="#fff"
+        android:layout_alignParentBottom="true"
+        tools:ignore="MissingConstraints"
+        android:layout_marginBottom="@dimen/_15sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        />
+
+</RelativeLayout>
