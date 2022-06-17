@@ -18,12 +18,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import com.google.android.material.button.MaterialButton
-import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.snackbar.Snackbar.LENGTH_SHORT
 import com.travelingapp.R
 import com.travelingapp.model.api.TranslationResult
-import com.travelingapp.model.room.AppBookmark
-import com.travelingapp.model.room.AppHistory
 import com.travelingapp.model.room.AppLanguage
 import com.travelingapp.model.view.LanguagesViewModel
 import com.travelingapp.model.view.TranslatorViewModel
@@ -46,7 +42,8 @@ class TranslationFragment : Fragment(), TextWatcher, View.OnClickListener, Corou
     private lateinit var mInputDone: MaterialButton
     private lateinit var mSwap: MaterialButton
     private lateinit var mLanguages: LanguagesViewModel
-
+//    private lateinit var mHistory: HistoryViewModel
+//    private lateinit var mBookmarks: BookmarkViewModel
     private lateinit var mTranslator: TranslatorViewModel
     private var job: Job = Job()
     override val coroutineContext: CoroutineContext

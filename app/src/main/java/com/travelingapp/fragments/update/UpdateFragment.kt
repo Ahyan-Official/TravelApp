@@ -40,7 +40,9 @@ class UpdateFragment : Fragment() {
         view.userid.setText(args.currentUser.userid)
         view.countryid.setText(args.currentUser.countryid)
 
-
+        view.update_btn.setOnClickListener {
+            updateItem()
+        }
 
         // Add menu
         setHasOptionsMenu(true)
@@ -48,6 +50,25 @@ class UpdateFragment : Fragment() {
         return view
     }
 
+    private fun updateItem() {
+        val firstName = updateFirstName_et.text.toString()
+        val lastName = updateLastName_et.text.toString()
+        val age = Integer.parseInt(updateScore_et.text.toString())
+        val countryid = countryid.text.toString()
+        val userid = userid.text.toString()
+        if (inputCheck(firstName, lastName, updateScore_et.text)) {
+            // Create User Object
+            val updatedUser = User(args.currentUser.id, firstName, lastName, age,userid,countryid)
+            // Update Current User
+            mUserViewModel.updateUser(updatedUser)
+            Toast.makeText(requireContext(), "Updated Successfully!", Toast.LENGTH_SHORT).show()
+            // Navigate Back
+            findNavController().navigate(R.id.action_updateFragment_to_listFragment)
+        } else {
+            Toast.makeText(requireContext(), "Please fill out all fields.", Toast.LENGTH_SHORT)
+                .show()
+        }
+    }
 
     private fun inputCheck(firstName: String, lastName: String, age: Editable): Boolean {
         return !(TextUtils.isEmpty(firstName) && TextUtils.isEmpty(lastName) && age.isEmpty())

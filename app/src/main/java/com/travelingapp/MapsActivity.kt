@@ -42,8 +42,92 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mapFragment.getMapAsync(this)
 
 
+        val id:String = intent.getStringExtra("id").toString()
+
+        parseJSON(id);
+
+    }
+    private fun parseJSON(id:String) {
+        var idint = id.toInt();
+
+        // .addConverterFactory(GsonConverterFactory.create()) for Gson converter
+        // .addConverterFactory(MoshiConverterFactory.create()) for Moshi converter
+        // .addConverterFactory(Json.asConverterFactory("application/json".toMediaType())) for Kotlinx Serialization converter
+        // .addConverterFactory(JacksonConverterFactory.create()) for Jackson converter
+
+        // Create Retrofit
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://gist.githubusercontent.com")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        // Create Service
+        val service = retrofit.create(APIServiceData::class.java)
+        CoroutineScope(Dispatchers.IO).launch {
+
+            // Do the GET request and get response
+            val response = service.getEmployees()
+
+            withContext(Dispatchers.Main) {
+                if (response.isSuccessful) {
+
+                    // Convert raw JSON to pretty JSON using GSON library
+                    val gson = GsonBuilder().setPrettyPrinting().create()
+                    val prettyJson = gson.toJson(response.body())
+                    Log.d("Pretty Printed JSON :", prettyJson)
+//                    binding.jsonResultsTextview.text = prettyJson
+
+                    val items = response.body()
 
 
+                    val itemsattractions = items?.get(idint-1)?.attractions
+                    if (itemsattractions != null) {
+
+                        for (j in 0 until itemsattractions.count()) {
+
+                            var employeeAge = itemsattractions[j].name?: "N/A"
+
+                            var latitude = itemsattractions[j].location?.latitude ?: "N/A"
+                            var longitude = itemsattractions[j].location?.longitude ?: "N/A"
+
+                            Log.d("xpy: ", longitude)
+
+
+
+                            val snippet = String.format(
+                                Locale.getDefault(),
+                                "Lat: %1$.5f, Long: %2$.5f",
+                                latitude.toDouble(),
+                                longitude.toDouble()
+                            )
+
+                            var mLatLng = LatLng(latitude.toDouble(), longitude.toDouble())
+
+
+                            map.addMarker(
+                                MarkerOptions()
+                                    .position(mLatLng)
+                                    .title(getString(R.string.dropped_pin))
+                                    .snippet(snippet)
+                                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
+                            )
+
+                            map.moveCamera(CameraUpdateFactory.newLatLngZoom(mLatLng, 12f))
+
+                        }
+
+                    }
+
+
+
+
+                } else {
+
+                    Log.e("RETROFIT_ERROR", response.code().toString())
+
+                }
+            }
+        }
     }
 
 

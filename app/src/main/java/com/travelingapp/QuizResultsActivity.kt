@@ -16,7 +16,11 @@ class QuizResultsActivity : AppCompatActivity() {
         setupActionBarWithNavController(findNavController(R.id.fragment))
 
 
+        home.setOnClickListener {
 
+            val intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -24,5 +28,7 @@ class QuizResultsActivity : AppCompatActivity() {
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
 
+    override fun onBackPressed() {
 
+    }
 }

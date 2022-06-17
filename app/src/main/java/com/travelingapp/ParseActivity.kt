@@ -20,6 +20,13 @@ class ParseActivity : AppCompatActivity() {
 
 
 
+        binding.arrayJsonButton.setOnClickListener {
+
+            val intent = Intent(this@ParseActivity, CountriesActivity::class.java)
+            this@ParseActivity.startActivity(intent)
+
+        }
+
 
     }
 }

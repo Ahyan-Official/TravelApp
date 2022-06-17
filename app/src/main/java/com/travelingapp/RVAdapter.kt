@@ -37,7 +37,19 @@ class RVAdapter(private val cell: ArrayList<Cell>, var taskk: String) : Recycler
                 intent.putExtra("id", cell[position].id)
 
                 it.context.startActivity(intent)
+            }else if(taskk == "quiz"){
+                val intent = Intent(it.context, QuizActivity::class.java)
+                intent.putExtra("id", cell[position].id)
+
+                it.context.startActivity(intent)
+            }else if(taskk == "phrase"){
+                val intent = Intent(it.context, PhraseActivity::class.java)
+                intent.putExtra("id", cell[position].id)
+
+                it.context.startActivity(intent)
             }
+
+
         }
 
     }

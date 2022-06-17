@@ -22,7 +22,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-
+import com.shrikanthravi.library.NightModeButton
 import com.travelingapp.activity.MainTranslationActivity
 import com.travelingapp.arrayJSON.CountriesActivity
 import com.travelingapp.model.User
